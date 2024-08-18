@@ -35,12 +35,6 @@ Ensure you have the required Python libraries:
       ```bash
     self.master_password = "Donotdisturb!01"
      ``` 
-## 🌟 Features
-- 🔐 **Generate Strong Passwords**: Create robust, random passwords with customizable lengths and character sets.
-- 📂 **Add and Retrieve Passwords**: Securely store and retrieve passwords for your favorite sites.
-- 📜 **Export Passwords**: Export all stored passwords to a text file for backup or sharing.
-- 🔒 **Encryption**: Keep your passwords safe with encryption.
-- 🖥️ **User-Friendly GUI**: A graphical user interface built with Tkinter for a seamless experience.
 ## 🔧 Password Management
 - 🆕 **Add Password**: Enter the site and password, then click "Add Password."
 - 🔍 **Retrieve Password**: Enter the site name to get the stored password.
