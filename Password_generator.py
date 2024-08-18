@@ -84,7 +84,7 @@ class App:
         self.root.title("Secure Password Manager")
         self.root.geometry("600x400")  # Adjusted size for better fit
         self.pm = PasswordManager()
-        self.master_password = "Quechua!01"  # Set your master password here
+        self.master_password = "Donotdisturb!01"  # Set your master password here
 
         self.create_master_password_prompt()
         self.style = ttk.Style()
@@ -93,8 +93,8 @@ class App:
     def create_master_password_prompt(self):
         self.master_password_entry = tk.Toplevel(self.root)
         self.master_password_entry.title("Enter Master Password")
-        self.master_password_entry.geometry("300x150")  # Adjusted size for better fit
-        self.master_password_entry.attributes('-topmost', True)  # Ensure it's on top
+        self.master_password_entry.geometry("300x150")  
+        self.master_password_entry.attributes('-topmost', True) 
 
         frame = tk.Frame(self.master_password_entry, padx=20, pady=20)
         frame.pack(expand=True, fill=tk.BOTH)
