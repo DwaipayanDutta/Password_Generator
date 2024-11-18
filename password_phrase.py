@@ -1,13 +1,9 @@
 import random
 import requests
-
-# Function to load words from the dictionary file
 def load_dictionary(url):
     response = requests.get(url)
     words = response.text.splitlines()
     return words
-
-# Function to apply substitutions to the password
 def apply_substitutions(word):
     substitutions = {
         'a': '@',
@@ -20,19 +16,35 @@ def apply_substitutions(word):
         word = word.replace(original, substitute)
     return word
 
+# Function to capitalize letters in a word
+def random_capitalize(word):
+    return ''.join(random.choice([char.upper(), char]) for char in word)
+def capitalize_first_letter(word):
+    return word.capitalize()
+
 # Function to generate a password from the dictionary
-def generate_password(words, length=3):
+def generate_password(words, length=3, random_case=False, capitalize_first=False):
     password_words = random.sample(words, length)
     raw_words = password_words  # Store the raw words for printing
-    password = ''.join(apply_substitutions(word) for word in password_words)
+    
+    if capitalize_first:
+        password = ''.join(capitalize_first_letter(apply_substitutions(word)) for word in password_words)
+    else:
+        password = ''.join(apply_substitutions(random_capitalize(word) if random_case else word) for word in password_words)
+
     return password, raw_words  
 
 # Main execution
 if __name__ == "__main__":
-    url = "https://raw.githubusercontent.com/dolph/dictionary/master/popular.txt"
+    url = "https://raw.githubusercontent.com/DwaipayanDutta/Password_Generator/refs/heads/main/words.txt"
     words = load_dictionary(url)
-    
-    password, raw_words = generate_password(words)
+
+    # Parameters for password generation
+    length = 3  # Number of words in the password
+    random_case = True  # Set to True for random capitalization of letters
+    capitalize_first = False  # Set to True to capitalize the first letter of each word
+
+    password, raw_words = generate_password(words, length, random_case, capitalize_first)
     
     print("Generated Password:", password)
     print("Raw Words Used:", ', '.join(raw_words))
