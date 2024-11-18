@@ -36,7 +36,9 @@ def generate_password(words, length=3, random_case=False, capitalize_first=False
 
 # Main execution
 if __name__ == "__main__":
-    url = "https://raw.githubusercontent.com/DwaipayanDutta/Password_Generator/refs/heads/main/words.txt"
+    url = "https://websites.umich.edu/~jlawler/wordlist"
+    #"https://raw.githubusercontent.com/DwaipayanDutta/Password_Generator/refs/heads/main/words.txt"
+    #https://websites.umich.edu/~jlawler/wordlist
     words = load_dictionary(url)
 
     # Parameters for password generation
